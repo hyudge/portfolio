@@ -1,0 +1,130 @@
+/* === Layout général === */
+body {
+  display: flex;
+  margin: 0;
+  min-height: 100vh;
+  font-family: 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  background: #f0f0f5;
+}
+
+/* === Sidebar animé === */
+.sidebar {
+  width: 220px;
+  background: linear-gradient(180deg, #ff7eb3, #ff758c, #ff7eb3);
+  background-size: 400% 400%;
+  animation: gradientShift 10s ease infinite;
+  color: white;
+  position: fixed;
+  top: 0; left: 0; bottom: 0;
+  padding: 20px;
+  box-shadow: 3px 0 15px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+@keyframes gradientShift {
+  0%{background-position:0% 50%}
+  50%{background-position:100% 50%}
+  100%{background-position:0% 50%}
+}
+.sidebar h3 {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 30px;
+  animation: slideIn 1s ease-out;
+}
+.sidebar a {
+  color: white;
+  text-decoration: none;
+  display: block;
+  padding: 12px;
+  border-radius: 8px;
+  transition: background 0.3s, transform 0.2s;
+  margin-bottom: 8px;
+}
+.sidebar a:hover {
+  background: rgba(255,255,255,0.2);
+  transform: translateX(5px);
+}
+
+/* === Animations === */
+@keyframes slideIn {
+  from { transform: translateX(-250px); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* === Contenu === */
+.content {
+  margin-left: 240px;
+  flex: 1;
+  padding: 50px;
+  background: linear-gradient(120deg, #fdfbfb, #ebedee);
+  animation: fadeIn 1.2s ease-in;
+}
+
+/* === Hero section === */
+.hero {
+  background: linear-gradient(90deg, #36d1dc, #5b86e5);
+  color: white;
+  border-radius: 20px;
+  padding: 60px;
+  text-align: center;
+  box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
+  animation: fadeIn 1.5s ease;
+}
+.hero h1 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+}
+.hero p {
+  font-size: 1.2rem;
+  font-weight: 500;
+}
+
+/* === Boutons animés pour navigation === */
+.btn-redirect {
+  display: inline-block;
+  padding: 20px 30px;
+  font-size: 1.2rem;
+  border-radius: 15px;
+  text-decoration: none;
+  margin: 15px;
+  transition: all 0.4s ease;
+  color: white;
+  box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+}
+.btn-redirect:hover {
+  transform: scale(1.1) rotate(-2deg);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.3);
+}
+.btn-projets { background: linear-gradient(135deg, #36d1dc, #5b86e5); }
+.btn-veilles { background: linear-gradient(135deg, #ff9966, #ff5e62); }
+.btn-parcours { background: linear-gradient(135deg, #56ab2f, #a8e063); }
+
+/* === Cartes animées === */
+.card {
+  transition: transform 0.3s, box-shadow 0.3s;
+  border: none;
+  border-radius: 15px;
+  background: linear-gradient(135deg, #ffffff, #f0f8ff);
+  padding: 20px;
+  margin-bottom: 25px;
+}
+.card:hover {
+  transform: translateY(-10px) scale(1.03);
+  box-shadow: 0px 15px 25px rgba(0,0,0,0.2);
+}
+.card i {
+  font-size: 2rem;
+  margin-bottom: 10px;
+  color: #36d1dc;
+  transition: transform 0.3s;
+}
+.card:hover i {
+  transform: rotate(15deg) scale(1.2);
+}
+
+
