@@ -18,6 +18,7 @@
     <a href="projets.html">Projets</a>
     <a href="veilles.html">Veilles</a>
     <a href="contact.html">Contact</a>
+    <a href="stage-1.html">Stage n°1</a>
   </div>
 
   <!-- Contenu -->
@@ -27,118 +28,61 @@
       <p class="lead">Focus sur l’Intelligence Artificielle (IA)</p>
     </div>
 
-    <!-- Article IA 1 -->
-    <div class="row mt-5">
-      <div class="col-md-12">
-        <div class="card p-4 shadow mb-4">
-          <h3>📌 L'évolution rapide de l’Intelligence Artificielle</h3>
-          <p>
-            L’IA connaît une croissance fulgurante depuis plusieurs années grâce aux progrès du deep learning,
-            à l’augmentation de la puissance des GPU et à l'accès à des bases de données massives. Des modèles
-            comme GPT, Claude, Gemini ou Llama permettent désormais de générer du texte, du code et même des images
-            avec un niveau proche de celui de l’humain. Cette accélération transforme de nombreux secteurs : 
-            développement logiciel, santé, finance, éducation et sécurité informatique.
-          </p>
-        </div>
+    <!-- Barre de recherche -->
+    <div class="row mt-4">
+      <div class="col-md-6 offset-md-3">
+        <input type="text" id="search-input" class="form-control" placeholder="Rechercher un article...">
       </div>
     </div>
 
-    <!-- Article IA 2 -->
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card p-4 shadow mb-4">
-          <h3>📌 L’IA dans le futur : quelles évolutions ?</h3>
-          <p>
-            Dans les prochaines années, l’IA devrait devenir un outil indispensable dans les entreprises. 
-            On prévoit des assistants intelligents capables d’automatiser presque toutes les tâches répétitives, 
-            des IA spécialisées dans l’apprentissage personnalisé, des systèmes de cybersécurité autonomes 
-            et des robots capables d’assister physiquement les humains. Les IA multimodales seront au cœur 
-            de cette révolution, capables de comprendre textes, sons, images et vidéos simultanément.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- Article IA 3 -->
-    <div class="row">
-      <div class="col-md-12">
-        <div class="card p-4 shadow mb-4">
-          <h3>📌 Les risques et limites de l’Intelligence Artificielle</h3>
-          <p>
-            Malgré ses avantages, l’IA comporte des risques : erreurs factuelles, dépendance trop forte, 
-            manipulation de l’information, deepfakes, pertes d’emplois et atteintes à la vie privée. 
-            La cybersécurité est particulièrement concernée, car l’IA est utilisée à la fois pour défendre 
-            et pour attaquer. Les gouvernements travaillent aujourd’hui sur des lois encadrant ces technologies 
-            afin de garantir une utilisation responsable.
-          </p>
-        </div>
-      </div>
-    </div>
-
-    <!-- VEILLE AUTOMATIQUE IA -->
-    <div class="row mt-5">
-      <div class="col-md-12">
-        <div class="card p-4 shadow mb-4">
-          <h3>📰 Veille automatique – Actualités récentes en Intelligence Artificielle</h3>
-          <p class="text-muted">Actualisation automatique à chaque visite.</p>
-
-          <ul id="ia-news" class="list-group">
-            <li class="list-group-item">Chargement des actualités IA...</li>
-          </ul>
-        </div>
-      </div>
-    </div>
+    <!-- Liste des articles -->
+    <ul id="ia-news" class="list-group mt-4">
+      <li class="list-group-item">
+        <strong>📌 La Russie crée sa task force nationale IA</strong><br>
+        <small>23/11/2025</small><br>
+       Vladimir Poutine a confirmé la formation d’une task force nationale dédiée à l’IA, dans l’objectif de renforcer la souveraineté technologique du pays.<br>
+       <i>TechRadar</i>
+      </li>
+      <li class="list-group-item">
+        <strong>📌 L’UE pourrait assouplir son “AI Act” sous la pression des géants tech</strong><br>
+        <small>07/11/2025</small><br>
+        La Commission européenne envisagerait d’alléger certaines parties de sa législation sur l’IA (l’AI Act), face au lobbying des grandes entreprises tech.<br>
+        <i>Financial Times</i>
+      </li>
+      <li class="list-group-item">
+        <strong>📌 Microsoft crée une équipe “superintelligence” pour le diagnostic médical </strong><br>
+        <small>06/11/2025</small><br>
+       Microsoft a lancé une nouvelle équipe, la MAI Superintelligence Team, qui vise à créer des systèmes d’IA “surhumains” dans des domaines précis, à commencer par la santé.<br>
+        <i>Reuters</i>
+      </li>
+      
+      <li class="list-group-item">
+        <strong>a remplir</strong><br>
+        <small>a remplir</small><br>
+        a remplir
+      </li>
+    </ul>
 
   </div>
 
-  <!-- SCRIPT DE VEILLE IA -->
   <script>
-    const newsList = document.getElementById("ia-news");
+    const searchInput = document.getElementById('search-input');
+    const newsList = document.getElementById('ia-news');
+    const articles = Array.from(newsList.getElementsByTagName('li'));
 
-    const feeds = [
-      "https://rss.app/feeds/Gl5zCOHoygEo2yN5.xml", // OpenAI
-      "https://rss.app/feeds/nCzHNG8qplzyuUcn.xml", // Google AI Blog
-      "https://rss.app/feeds/oVkcf63Z12lHspfX.xml"  // MIT Tech Review - AI
-    ];
+    // Fonction pour filtrer les articles
+    searchInput.addEventListener('input', function() {
+      const query = this.value.toLowerCase();
 
-    async function loadAInews() {
-      newsList.innerHTML = "<li class='list-group-item'>Chargement...</li>";
-
-      let allArticles = [];
-
-      for (const feed of feeds) {
-        try {
-          const res = await fetch(`https://api.rss2json.com/v1/api.json?rss_url=${feed}`);
-          const data = await res.json();
-
-          if (data.items) {
-            allArticles.push(...data.items.slice(0, 5));
-          }
-        } catch (error) {
-          console.error("Erreur RSS:", error);
+      articles.forEach(article => {
+        const text = article.textContent.toLowerCase();
+        if(text.includes(query)) {
+          article.style.display = '';
+        } else {
+          article.style.display = 'none';
         }
-      }
-
-      allArticles.sort((a, b) => new Date(b.pubDate) - new Date(a.pubDate));
-
-      newsList.innerHTML = "";
-
-      allArticles.slice(0, 10).forEach(article => {
-        const li = document.createElement("li");
-        li.className = "list-group-item";
-
-        li.innerHTML = `
-          <strong>${article.title}</strong><br>
-          <small>${new Date(article.pubDate).toLocaleDateString()}</small><br>
-          <a href="${article.link}" target="_blank">Lire l’article complet</a>
-        `;
-
-        newsList.appendChild(li);
       });
-    }
-
-    loadAInews();
+    });
   </script>
-
 </body>
 </html>
