@@ -11,7 +11,7 @@ body {
 /* === Sidebar animé === */
 .sidebar {
   width: 220px;
-  background: linear-gradient(180deg, #ff7eb3, #ff758c, #ff7eb3);
+  background: linear-gradient(180deg, #0a2ce9, #2d2199, #0a27ce);
   background-size: 400% 400%;
   animation: gradientShift 10s ease infinite;
   color: white;
