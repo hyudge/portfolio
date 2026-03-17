@@ -59,6 +59,41 @@
             <li>Développement Web (REACT)</li>
           </ul>
         </div>
+      <!-- Galerie images -->
+<div class="card p-4 shadow mb-4">
+  <h3>Galerie du stage 📸</h3>
+  
+  <div class="row g-3 mt-2">
+    
+    <div class="col-md-6">
+      <img src="img1.jpg" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="openImage(this.src)">
+    </div>
+
+    <div class="col-md-6">
+      <img src="img2.jpg" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="openImage(this.src)">
+    </div>
+
+    <div class="col-md-6">
+      <img src="img3.jpg" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="openImage(this.src)">
+    </div>
+
+    <div class="col-md-6">
+      <img src="img4.jpg" class="img-fluid rounded gallery-img" data-bs-toggle="modal" data-bs-target="#imageModal" onclick="openImage(this.src)">
+    </div>
+
+  </div>
+</div>
+
+<!-- Modal (zoom image) -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-dark">
+      <div class="modal-body text-center">
+        <img id="modalImage" src="" class="img-fluid rounded">
+      </div>
+    </div>
+  </div>
+</div>
       </div>
     </div>
 
@@ -67,5 +102,10 @@
       <a href="parcours.html" class="btn btn-primary">← Retour au parcours</a>
     </div>
   </div>
+  <script>
+  function openImage(src) {
+    document.getElementById("modalImage").src = src;
+  }
+</script>
 </body>
 </html>
