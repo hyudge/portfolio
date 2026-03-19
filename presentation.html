@@ -21,6 +21,7 @@
     <a href="contact.html">📧 Contact</a>
     <a href="stage-1.html">💼 Stage n°1</a>
     <a href="stage-2.html">💼 Stage n°2</a>
+    <button id="darkModeToggle" class="btn-dark-mode">🌙 Mode Sombre</button>
   </div>
 
   <!-- Contenu principal -->
@@ -73,4 +74,28 @@
 
   </div>
 </body>
+
+<script>
+  // Mode sombre
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+  
+  // Charger le mode sombre depuis localStorage
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    body.classList.add('dark-mode');
+    darkModeToggle.textContent = '☀️ Mode Clair';
+  }
+  
+  darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      localStorage.setItem('darkMode', 'enabled');
+      darkModeToggle.textContent = '☀️ Mode Clair';
+    } else {
+      localStorage.setItem('darkMode', 'disabled');
+      darkModeToggle.textContent = '🌙 Mode Sombre';
+    }
+  });
+</script>
+
 </html>

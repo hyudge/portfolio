@@ -1,3 +1,25 @@
+/* === Variables CSS === */
+:root {
+  --bg-light: #f0f0f5;
+  --bg-dark: #1a1a2e;
+  --text-light: #000;
+  --text-dark: #ffffff;
+  --card-bg-light: linear-gradient(135deg, #ffffff, #f0f8ff);
+  --card-bg-dark: linear-gradient(135deg, #2d2d44, #1f1f2e);
+  --content-bg-light: linear-gradient(120deg, #fdfbfb, #ebedee);
+  --content-bg-dark: linear-gradient(120deg, #1a1a2e, #16213e);
+  --hero-bg-light: linear-gradient(90deg, #36d1dc, #5b86e5);
+  --hero-bg-dark: linear-gradient(90deg, #2d5f8d, #1a3a52);
+}
+
+body.dark-mode {
+  --bg-light: #1a1a2e;
+  --text-light: #ffffff;
+  --card-bg-light: linear-gradient(135deg, #2d2d44, #1f1f2e);
+  --content-bg-light: linear-gradient(120deg, #1a1a2e, #16213e);
+  --hero-bg-light: linear-gradient(90deg, #2d5f8d, #1a3a52);
+}
+
 /* === Layout général === */
 body {
   display: flex;
@@ -5,7 +27,9 @@ body {
   min-height: 100vh;
   font-family: 'Segoe UI', sans-serif;
   overflow-x: hidden;
-  background: #f0f0f5;
+  background: var(--bg-light);
+  color: var(--text-light);
+  transition: background-color 0.3s ease;
 }
 
 /* === Sidebar animé === */
@@ -46,6 +70,26 @@ body {
   transform: translateX(5px);
 }
 
+/* === Bouton Mode Sombre === */
+.btn-dark-mode {
+  width: 100%;
+  padding: 12px;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.5);
+  background: rgba(255,255,255,0.1);
+  color: white;
+  cursor: pointer;
+  font-weight: 600;
+  margin-top: 30px;
+  transition: all 0.3s ease;
+}
+
+.btn-dark-mode:hover {
+  background: rgba(255,255,255,0.2);
+  border-color: white;
+  transform: translateY(-2px);
+}
+
 /* === Animations === */
 @keyframes slideIn {
   from { transform: translateX(-250px); opacity: 0; }
@@ -61,19 +105,21 @@ body {
   margin-left: 240px;
   flex: 1;
   padding: 50px;
-  background: linear-gradient(120deg, #fdfbfb, #ebedee);
+  background: var(--content-bg-light);
   animation: fadeIn 1.2s ease-in;
+  transition: background 0.3s ease;
 }
 
 /* === Hero section === */
 .hero {
-  background: linear-gradient(90deg, #36d1dc, #5b86e5);
+  background: var(--hero-bg-light);
   color: white;
   border-radius: 20px;
   padding: 60px;
   text-align: center;
   box-shadow: 0px 10px 25px rgba(0,0,0,0.2);
   animation: fadeIn 1.5s ease;
+  transition: background 0.3s ease;
 }
 .hero h1 {
   font-size: 2.5rem;
@@ -109,9 +155,10 @@ body {
   transition: transform 0.3s, box-shadow 0.3s;
   border: none;
   border-radius: 15px;
-  background: linear-gradient(135deg, #ffffff, #f0f8ff);
+  background: var(--card-bg-light);
   padding: 20px;
   margin-bottom: 25px;
+  color: var(--text-light);
 }
 .card:hover {
   transform: translateY(-10px) scale(1.03);
