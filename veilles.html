@@ -63,8 +63,15 @@
 
 <body>
 
+<!-- Hamburger Menu -->
+<button class="hamburger" id="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
 <!-- Sidebar -->
-  <div class="sidebar">
+  <div class="sidebar" id="sidebar">
     <h3>🌟 Portfolio</h3>
     <a href="index.html">🏠 Accueil</a>
     <a href="presentation.html">👤 Présentation</a>
@@ -195,6 +202,23 @@ searchInput.addEventListener('input', function() {
 
   noResult.style.display = found ? 'none' : 'block';
 
+});
+
+// Menu Burger
+const hamburger = document.getElementById('hamburger');
+const sidebar = document.getElementById('sidebar');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  sidebar.classList.toggle('active');
+});
+
+// Fermer le menu quand on clique sur un lien
+document.querySelectorAll('.sidebar a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    sidebar.classList.remove('active');
+  });
 });
 
 // Mode sombre
