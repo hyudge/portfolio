@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veilles - Intelligence Artificielle</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link href="style.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .sidebar {
+      height: 100vh;
+      width: 220px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #212529;
+      padding: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+
+    .sidebar a:hover {
+      color: #0d6efd;
+    }
+
+    .content {
+      margin-left: 240px;
+      padding: 30px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0d6efd, #6610f2);
+      color: white;
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<!-- Hamburger Menu -->
+<button class="hamburger" id="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h3>🌟 Portfolio</h3>
+    <a href="index.html">🏠 Accueil</a>
+    <a href="presentation.html">👤 Présentation</a>
+    <a href="parcours.html">📚 Parcours</a>
+    <a href="projets.html">💻 Projets</a>
+    <a href="veilles.html">💡 Veilles</a>
+    <a href="contact.html">📧 Contact</a>
+    <a href="stage-1.html">💼 Stage n°1</a>
+    <a href="stage-2.html">💼 Stage n°2</a>
+    <a href="grille-synthese.html">📊 Grille de Synthèse</a>
+    <button id="darkModeToggle" class="btn-dark-mode">🌙 Mode Sombre</button>
+  </div>
+
+<!-- Contenu -->
+<div class="content">
+
+  <div class="hero text-center">
+    <h1>Veille Technologique 🔎</h1>
+    <p class="lead">Intelligence Artificielle (IA)</p>
+  </div>
+
+  <!-- Barre de recherche -->
+  <div class="row mt-4">
+    <div class="col-md-6 offset-md-3">
+      <input type="text" id="search-input" class="form-control" placeholder="Rechercher un article...">
+    </div>
+  </div>
+
+  <!-- Message aucun résultat -->
+  <p id="no-result" class="text-center mt-3 text-danger" style="display:none;">
+    Aucun article trouvé 😢
+  </p>
+
+  <!-- Liste des articles -->
+ <ul id="ia-news" class="list-group mt-4">
+
+  <li class="list-group-item">
+    <strong>📌 L’IA devient invisible dans notre quotidien</strong><br>
+    <small>20/02/2026</small><br>
+    Lors du CES 2026, l’intelligence artificielle est devenue une technologie intégrée partout (objets, entreprises, services). Elle fonctionne désormais comme une infrastructure invisible qui automatise de nombreux processus.<br>
+    🔗 <a href="https://www.latribune.fr/article/idees/45084472625057/opinion-ces-2026-l-ia-devient-l-infrastructure-invisible-de-l-economie" target="_blank">Lire l'article</a><br>
+    <i>Source : La Tribune</i>
+  </li>
+
+  <li class="list-group-item">
+    <strong>📌 L’IA transforme profondément les entreprises</strong><br>
+    <small>26/02/2026</small><br>
+    Les entreprises passent de tests expérimentaux à une utilisation réelle de l’IA. Elle devient un élément central des systèmes informatiques pour améliorer la performance et automatiser les tâches.<br>
+    🔗 <a href="https://www.journaldunet.com/intelligence-artificielle/1548279-les-points-chauds-a-surveiller-alors-que-l-ia-devient-realite-en-2026-en-passant-de-projets-pilotes-spectaculaires-a-la-realite-technique/" target="_blank">Lire l'article</a><br>
+    <i>Source : Journal du Net</i>
+  </li>
+
+  <li class="list-group-item">
+    <strong>📌 Les systèmes d’IA collaboratifs émergent</strong><br>
+    <small>2026</small><br>
+    Une nouvelle tendance apparaît : plusieurs IA spécialisées travaillent ensemble (multi-agents) pour résoudre des problèmes complexes plus efficacement.<br>
+    🔗 <a href="https://www.westdatafestival.fr/blog/8-tendances-ia-a-suivre-en-2026/" target="_blank">Lire l'article</a><br>
+    <i>Source : West Data Festival</i>
+  </li>
+
+  <li class="list-group-item">
+    <strong>📌 L’IA générative continue de progresser</strong><br>
+    <small>2026</small><br>
+    Les IA sont désormais capables de générer du texte, des images, du son et des vidéos. Elles deviennent essentielles dans de nombreux secteurs comme la communication et le développement.<br>
+    🔗 <a href="https://bigmedia.bpifrance.fr/nos-dossiers/nouvelles-tendances-ia-ce-qui-va-transformer-2026" target="_blank">Lire l'article</a><br>
+    <i>Source : Bpifrance</i>
+  </li>
+
+  <li class="list-group-item">
+    <strong>📌 L’IA accélère le travail mais pose des défis</strong><br>
+    <small>09/03/2026</small><br>
+    L’intelligence artificielle permet aux salariés de travailler plus rapidement, mais les entreprises doivent encore s’adapter pour exploiter pleinement ces gains de productivité.<br>
+    🔗 <a href="https://www.journaldunet.com/intelligence-artificielle/1548509-ia-des-salaries-plus-rapides-des-organisations-encore-immobiles/" target="_blank">Lire l'article</a><br>
+    <i>Source : Journal du Net</i>
+  </li>
+
+  <li class="list-group-item">
+    <strong>📌 L’IA devient une compétence clé sur le marché du travail</strong><br>
+    <small>2026</small><br>
+    De plus en plus d’entreprises recherchent des compétences en IA, ce qui en fait un élément central dans les recrutements et les carrières.<br>
+    🔗 <a href="https://culture-rh.com/ia-competence-2026/" target="_blank">Lire l'article</a><br>
+    <i>Source : Culture RH</i>
+  </li>
+
+  <li class="list-group-item">
+    <strong>📌 L’IA utilisée dans les cyberattaques</strong><br>
+    <small>2026</small><br>
+    Des cybercriminels exploitent l’intelligence artificielle pour voler des données via des techniques avancées comme les DNS détournés.<br>
+    🔗 <a href="https://www.lemondeinformatique.fr/intelligence-artificielle-154.html" target="_blank">Lire l'article</a><br>
+    <i>Source : Le Monde Informatique</i>
+  </li>
+
+  <li class="list-group-item">
+    <strong>📌 L’IA soutient l’innovation en France</strong><br>
+    <small>2026</small><br>
+    Microsoft accompagne des milliers de startups françaises grâce à l’intelligence artificielle pour accélérer leur développement et leur transformation numérique.<br>
+    🔗 <a href="https://news.microsoft.com/source/emea/features/ai-tour-2026-accelerer-la-transformation-des-entreprises-davant-garde-en-france/?lang=fr" target="_blank">Lire l'article</a><br>
+    <i>Source : Microsoft</i>
+  </li>
+
+</ul>
+</div>
+
+<!-- Script recherche -->
+<script>
+const searchInput = document.getElementById('search-input');
+const newsList = document.getElementById('ia-news');
+const articles = Array.from(newsList.getElementsByTagName('li'));
+const noResult = document.getElementById('no-result');
+
+searchInput.addEventListener('input', function() {
+
+  const query = this.value.toLowerCase().trim();
+  let found = false;
+
+  articles.forEach(article => {
+
+    const text = article.textContent.toLowerCase();
+
+    if (text.includes(query)) {
+      article.style.display = '';
+      article.classList.add("fade-in");
+      found = true;
+    } else {
+      article.style.display = 'none';
+    }
+
+  });
+
+  noResult.style.display = found ? 'none' : 'block';
+
+});
+
+// Menu Burger
+const hamburger = document.getElementById('hamburger');
+const sidebar = document.getElementById('sidebar');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  sidebar.classList.toggle('active');
+});
+
+// Fermer le menu quand on clique sur un lien
+document.querySelectorAll('.sidebar a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    sidebar.classList.remove('active');
+  });
+});
+
+// Mode sombre
+const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
+
+// Charger le mode sombre depuis localStorage
+if (localStorage.getItem('darkMode') === 'enabled') {
+  body.classList.add('dark-mode');
+  darkModeToggle.textContent = '☀️ Mode Clair';
+}
+
+darkModeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  if (body.classList.contains('dark-mode')) {
+    localStorage.setItem('darkMode', 'enabled');
+    darkModeToggle.textContent = '☀️ Mode Clair';
+  } else {
+    localStorage.setItem('darkMode', 'disabled');
+    darkModeToggle.textContent = '🌙 Mode Sombre';
+  }
+});
+</script>
+
+</body>
+</html>
