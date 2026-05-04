@@ -1,0 +1,218 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Présentation - Portfolio</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link href="style.css" rel="stylesheet">
+</head>
+
+<body>
+  <!-- Hamburger Menu -->
+  <button class="hamburger" id="hamburger">
+    <span></span>
+    <span></span>
+    <span></span>
+  </button>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h3>🌟 Portfolio</h3>
+    <a href="index.html">🏠 Accueil</a>
+    <a href="presentation.html">👤 Présentation</a>
+    <a href="parcours.html">📚 Parcours</a>
+    <a href="projets.html">💻 Projets</a>
+    <a href="veilles.html">💡 Veilles</a>
+    <a href="contact.html">📧 Contact</a>
+    <a href="stage-1.html">💼 Stage n°1</a>
+    <a href="stage-2.html">💼 Stage n°2</a>
+    <a href="grille-synthese.html">📊 Grille de Synthèse</a>
+    <button id="darkModeToggle" class="btn-dark-mode">🌙 Mode Sombre</button>
+  </div>
+
+  <!-- Contenu principal -->
+  <div class="content">
+
+    <!-- Header -->
+    <div class="hero text-center">
+      <h1>Présentation 👋</h1>
+      <p class="lead">
+        Je suis étudiant en 2ème année de BTS SIO, passionné par le développement, le cloud et la cybersécurité.
+      </p>
+    </div>
+
+    <!-- Bloc Photo + Présentation -->
+    <div class="row mt-5 align-items-center">
+      <div class="col-md-4 text-center">
+        <img src="images/photo-profil.jpg" 
+             alt="Photo de profil" 
+             class="img-fluid rounded-circle shadow gallery-img" 
+             style="max-width: 250px; cursor: pointer;" 
+             onclick="openImage(this.src, this.alt)">
+      </div>
+
+      <div class="col-md-8">
+        <div class="card p-4 shadow">
+          <h3>À propos de moi</h3>
+          <p class="mt-3">
+            Je m'appelle <strong>Hugo IBANEZ-BELTRAN</strong>, étudiant en deuxième année de BTS SIO option SLAM (Solutions Logicielles et Application Métier).  
+           <br> Actuellement toujours en cours d'étude , je vous propose sur ce portfolio de retrouver ci-dessous les différentes études, et projet professionnel que j'ai pu entreprendre au sein de ma carrière.
+            Vous retrouverez ci-dessous mon CV ainsi que mes différents projets
+
+
+
+            <br><br>
+            Malgré tout mon objectif est de travailler dans la gendarmerie nationale 
+          </p>
+        </div>
+      </div>
+    </div>
+    
+ <div class="row mt-5 justify-content-center">
+  <div class="col-md-6 d-flex justify-content-center">
+    <div class="card p-4 text-center shadow mb-4">
+      <i class="bi bi-gear-fill fs-1 text-danger"></i>
+      <h5 class="mt-3">Compétences</h5>
+      <p>Développement Web, Bases de données, API, Réseaux, Cybersécurité.</p>
+    </div>
+  </div>
+</div>
+
+    <!-- Modal Lightbox pour images -->
+    <div id="imageModal" class="modal-lightbox">
+      <div class="lightbox-content">
+        <span class="lightbox-close" onclick="closeImage()">&times;</span>
+        <div class="lightbox-zoom-controls">
+          <button onclick="zoomOut()" class="zoom-btn">−</button>
+          <span id="zoomLevel">100%</span>
+          <button onclick="zoomIn()" class="zoom-btn">+</button>
+          <button onclick="resetZoom()" class="zoom-btn reset">Réinitialiser</button>
+        </div>
+        <div class="lightbox-image-container">
+          <img id="modalImage" src="" alt="Image agrandie">
+        </div>
+      </div>
+    </div>
+
+  </div>
+</body>
+
+<script>
+  // Gestion du zoom d'images
+  let currentZoom = 100;
+  const maxZoom = 300;
+  const minZoom = 50;
+  const zoomStep = 20;
+
+  function openImage(src, alt) {
+    const modal = document.getElementById('imageModal');
+    const modalImage = document.getElementById('modalImage');
+    modalImage.src = src;
+    modalImage.alt = alt;
+    modal.style.display = 'flex';
+    currentZoom = 100;
+    document.getElementById('zoomLevel').textContent = '100%';
+    modalImage.style.transform = 'scale(1)';
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeImage() {
+    const modal = document.getElementById('imageModal');
+    modal.style.display = 'none';
+    document.body.style.overflow = 'auto';
+  }
+
+  function zoomIn() {
+    if (currentZoom < maxZoom) {
+      currentZoom += zoomStep;
+      updateZoom();
+    }
+  }
+
+  function zoomOut() {
+    if (currentZoom > minZoom) {
+      currentZoom -= zoomStep;
+      updateZoom();
+    }
+  }
+
+  function resetZoom() {
+    currentZoom = 100;
+    updateZoom();
+  }
+
+  function updateZoom() {
+    const scale = currentZoom / 100;
+    document.getElementById('modalImage').style.transform = `scale(${scale})`;
+    document.getElementById('zoomLevel').textContent = currentZoom + '%';
+  }
+
+  // Zoom à la molette de souris
+  document.addEventListener('wheel', (e) => {
+    const modal = document.getElementById('imageModal');
+    if (modal.style.display === 'flex') {
+      e.preventDefault();
+      if (e.deltaY < 0) {
+        zoomIn();
+      } else {
+        zoomOut();
+      }
+    }
+  }, { passive: false });
+
+  // Fermer la modale avec Échap
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeImage();
+    }
+  });
+
+  // Fermer la modale en cliquant sur le fond
+  document.getElementById('imageModal').addEventListener('click', (e) => {
+    if (e.target.id === 'imageModal') {
+      closeImage();
+    }
+  });
+
+  // Menu Burger
+  const hamburger = document.getElementById('hamburger');
+  const sidebar = document.getElementById('sidebar');
+
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    sidebar.classList.toggle('active');
+  });
+
+  // Fermer le menu quand on clique sur un lien
+  document.querySelectorAll('.sidebar a').forEach(link => {
+    link.addEventListener('click', () => {
+      hamburger.classList.remove('active');
+      sidebar.classList.remove('active');
+    });
+  });
+
+  // Mode sombre
+  const darkModeToggle = document.getElementById('darkModeToggle');
+  const body = document.body;
+  
+  // Charger le mode sombre depuis localStorage
+  if (localStorage.getItem('darkMode') === 'enabled') {
+    body.classList.add('dark-mode');
+    darkModeToggle.textContent = '☀️ Mode Clair';
+  }
+  
+  darkModeToggle.addEventListener('click', () => {
+    body.classList.toggle('dark-mode');
+    if (body.classList.contains('dark-mode')) {
+      localStorage.setItem('darkMode', 'enabled');
+      darkModeToggle.textContent = '☀️ Mode Clair';
+    } else {
+      localStorage.setItem('darkMode', 'disabled');
+      darkModeToggle.textContent = '🌙 Mode Sombre';
+    }
+  });
+</script>
+
+</html>

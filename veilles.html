@@ -1,0 +1,240 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Veilles - Génération d'images par IA</title>
+
+  <!-- Bootstrap -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <link href="style.css" rel="stylesheet">
+
+  <style>
+    body {
+      background-color: #f8f9fa;
+    }
+
+    .sidebar {
+      height: 100vh;
+      width: 220px;
+      position: fixed;
+      top: 0;
+      left: 0;
+      background-color: #212529;
+      padding: 20px;
+    }
+
+    .sidebar a {
+      display: block;
+      color: white;
+      text-decoration: none;
+      margin-bottom: 10px;
+    }
+
+    .sidebar a:hover {
+      color: #0d6efd;
+    }
+
+    .content {
+      margin-left: 240px;
+      padding: 30px;
+    }
+
+    .hero {
+      background: linear-gradient(135deg, #0d6efd, #6610f2);
+      color: white;
+      padding: 40px;
+      border-radius: 10px;
+    }
+
+    .fade-in {
+      animation: fadeIn 0.3s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(5px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- Hamburger Menu -->
+<button class="hamburger" id="hamburger">
+  <span></span>
+  <span></span>
+  <span></span>
+</button>
+
+<!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <h3>🌟 Portfolio</h3>
+    <a href="index.html">🏠 Accueil</a>
+    <a href="presentation.html">👤 Présentation</a>
+    <a href="parcours.html">📚 Parcours</a>
+    <a href="projets.html">💻 Projets</a>
+    <a href="veilles.html">💡 Veilles</a>
+    <a href="contact.html">📧 Contact</a>
+    <a href="stage-1.html">💼 Stage n°1</a>
+    <a href="stage-2.html">💼 Stage n°2</a>
+    <a href="grille-synthese.pdf" target="_blank">📊 Grille de Synthèse (PDF)</a>
+    <button id="darkModeToggle" class="btn-dark-mode">🌙 Mode Sombre</button>
+  </div>
+
+<!-- Contenu -->
+<div class="content">
+
+  <div class="hero text-center">
+    <h1>Veille Technologique 🔎</h1>
+    <p class="lead">Génération d'images par Intelligence Artificielle</p>
+  </div>
+
+  <!-- Barre de recherche -->
+  <div class="row mt-4">
+    <div class="col-md-6 offset-md-3">
+      <input type="text" id="search-input" class="form-control" placeholder="Rechercher un article...">
+    </div>
+  </div>
+
+  <!-- Message aucun résultat -->
+  <p id="no-result" class="text-center mt-3 text-danger" style="display:none;">
+    Aucun article trouvé 😢
+  </p>
+
+  <!-- Liste des articles -->
+  <ul id="ia-news" class="list-group mt-4">
+
+    <li class="list-group-item">
+      <strong>📌 GPT Image 2 domine le classement mondial en avril 2026</strong><br>
+      <small>Avril 2026</small><br>
+      Selon le classement d'Artificial Analysis basé sur des millions de duels à l'aveugle, GPT Image 2 d'OpenAI s'impose en tête avec un score Elo de 1 332, grâce à ses progrès en photoréalisme et en rendu du texte. Il devance Google (Nano Banana 2), ByteDance (Seedream 4.0) et Black Forest Labs (FLUX.2).<br>
+      🔗 <a href="https://www.blogdumoderateur.com/ia-10-generateurs-images-performants-avril-2026/" target="_blank">Lire l'article</a><br>
+      <i>Source : Blog du Modérateur</i>
+    </li>
+
+    <li class="list-group-item">
+      <strong>📌 La génération d'images IA atteint une maturité industrielle en 2026</strong><br>
+      <small>2026</small><br>
+      En 2026, les générateurs d'images IA atteignent des résolutions supérieures à 2048x2048 pixels avec un rendu photoréaliste des visages et textures. Ce qui relevait du domaine exclusif des graphistes est désormais accessible à tous, avec des modèles freemium démocratisant l'accès à ces technologies.<br>
+      🔗 <a href="https://mankova-consulting.com/blog/generateurs-dimages-ia-en-2026-guide-complet-des-meilleurs-outils-pour-vos-projets" target="_blank">Lire l'article</a><br>
+      <i>Source : Mankova Consulting</i>
+    </li>
+
+    <li class="list-group-item">
+      <strong>📌 Midjourney V8 Alpha et l'essor des nouveaux modèles au printemps 2026</strong><br>
+      <small>Mars – Mai 2026</small><br>
+      Le printemps 2026 a été marqué par plusieurs sorties majeures : Midjourney V8 Alpha (17 mars), ChatGPT Images 2.0 (21 avril) et Nano Banana 2 de Google (26 février). Midjourney reste la référence pour la qualité esthétique brute, notamment pour la mode, la photographie éditoriale et les visuels de marques de luxe.<br>
+      🔗 <a href="https://digitiz.fr/generateurs-images-ia/" target="_blank">Lire l'article</a><br>
+      <i>Source : Digitiz</i>
+    </li>
+
+    <li class="list-group-item">
+      <strong>📌 Adobe Firefly s'intègre à OpenAI, Google et FLUX en 2026</strong><br>
+      <small>2026</small><br>
+      Adobe Firefly, intégré nativement dans Photoshop, Illustrator et Premiere Pro, s'est enrichi de partenariats avec OpenAI, Google et FLUX, permettant d'utiliser d'autres modèles directement dans l'interface Adobe. Son atout principal reste la garantie juridique sur les droits d'auteur, ses modèles étant entraînés exclusivement sur Adobe Stock sous licence.<br>
+      🔗 <a href="https://digitiz.fr/generateurs-images-ia/" target="_blank">Lire l'article</a><br>
+      <i>Source : Digitiz</i>
+    </li>
+
+    <li class="list-group-item">
+      <strong>📌 Reve Image : le générateur surprise qui bouscule le marché</strong><br>
+      <small>2025 – 2026</small><br>
+      Apparu de nulle part en mars 2025, Reve Image s'est instantanément hissé au sommet du classement d'Artificial Analysis. Il se distingue par sa capacité à suivre scrupuleusement les instructions les plus complexes, résolvant un problème historique des générateurs d'images IA.<br>
+      🔗 <a href="https://zapier.com/fr/blog/best-ai-image-generator/" target="_blank">Lire l'article</a><br>
+      <i>Source : Zapier</i>
+    </li>
+
+    <li class="list-group-item">
+      <strong>📌 La photographie comme preuve du réel a vécu : l'analyse de Paul Argoud</strong><br>
+      <small>2026</small><br>
+      Un article de fond souligne que la génération d'images IA est désormais une commodité industrielle. L'inpainting génératif est opérationnel dans Photoshop depuis 2025 et la photographie d'illustration générique est déjà produite par des générateurs IA dans certaines rédactions. L'institution photographique comme preuve du réel couvre la période 1839–2025.<br>
+      🔗 <a href="https://paul.argoud.net/generation-images-ia-2026-commodite" target="_blank">Lire l'article</a><br>
+      <i>Source : Paul Argoud</i>
+    </li>
+
+    <li class="list-group-item">
+      <strong>📌 Le Parlement européen vote pour protéger les auteurs face à l'IA générative</strong><br>
+      <small>10/03/2026</small><br>
+      Le Parlement européen a adopté à une très large majorité (460 voix pour, 71 contre) un rapport préconisant une utilisation transparente et rémunérée des contenus protégés par les IA génératives. Les fournisseurs d'IA devront publier la liste de toutes les œuvres utilisées pour entraîner leurs modèles, sous peine de conséquences juridiques.<br>
+      🔗 <a href="https://www.europarl.europa.eu/news/fr/press-room/20260306IPR37511/proteger-les-oeuvres-soumises-aux-droits-d-auteur-a-l-ere-de-l-ia" target="_blank">Lire l'article</a><br>
+      <i>Source : Parlement Européen</i>
+    </li>
+
+    <li class="list-group-item">
+      <strong>📌 Droit d'auteur et IA : ce qui change en France et en Europe en 2026</strong><br>
+      <small>2026</small><br>
+      L'AI Act impose depuis août 2025 aux fournisseurs de modèles d'IA générative de publier un résumé détaillé des données d'entraînement utilisées. En France, une proposition de loi examinée au Sénat vise à instaurer une présomption d'exploitation des œuvres culturelles par les IA. Un contenu 100 % généré par IA ne peut pas être protégé par le droit d'auteur.<br>
+      🔗 <a href="https://grandmur.com/blog/droit-auteur-ia-generative-obligations-2026/" target="_blank">Lire l'article</a><br>
+      <i>Source : Grandmur</i>
+    </li>
+
+  </ul>
+</div>
+
+<!-- Script recherche -->
+<script>
+const searchInput = document.getElementById('search-input');
+const newsList = document.getElementById('ia-news');
+const articles = Array.from(newsList.getElementsByTagName('li'));
+const noResult = document.getElementById('no-result');
+
+searchInput.addEventListener('input', function() {
+  const query = this.value.toLowerCase().trim();
+  let found = false;
+
+  articles.forEach(article => {
+    const text = article.textContent.toLowerCase();
+    if (text.includes(query)) {
+      article.style.display = '';
+      article.classList.add("fade-in");
+      found = true;
+    } else {
+      article.style.display = 'none';
+    }
+  });
+
+  noResult.style.display = found ? 'none' : 'block';
+});
+
+// Menu Burger
+const hamburger = document.getElementById('hamburger');
+const sidebar = document.getElementById('sidebar');
+
+hamburger.addEventListener('click', () => {
+  hamburger.classList.toggle('active');
+  sidebar.classList.toggle('active');
+});
+
+document.querySelectorAll('.sidebar a').forEach(link => {
+  link.addEventListener('click', () => {
+    hamburger.classList.remove('active');
+    sidebar.classList.remove('active');
+  });
+});
+
+// Mode sombre
+const darkModeToggle = document.getElementById('darkModeToggle');
+const body = document.body;
+
+if (localStorage.getItem('darkMode') === 'enabled') {
+  body.classList.add('dark-mode');
+  darkModeToggle.textContent = '☀️ Mode Clair';
+}
+
+darkModeToggle.addEventListener('click', () => {
+  body.classList.toggle('dark-mode');
+  if (body.classList.contains('dark-mode')) {
+    localStorage.setItem('darkMode', 'enabled');
+    darkModeToggle.textContent = '☀️ Mode Clair';
+  } else {
+    localStorage.setItem('darkMode', 'disabled');
+    darkModeToggle.textContent = '🌙 Mode Sombre';
+  }
+});
+</script>
+
+</body>
+</html>
